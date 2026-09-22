@@ -1,0 +1,10 @@
+# Netlify pricing-sync venue (wave-27 port of comfy-sync-runner sync.yml)
+# Runs on DRAFT (preview) deploys ONLY — 0 credits (never --prod:
+# 15 credits/deploy). Triggered hourly via the API by the GHA runner
+# repo's netlify-trigger.yml (POST /sites/{id}/deploys {draft:true}).
+[build]
+  command = "bash netlify-sync.sh"
+  publish = "src"
+
+[[plugins]]
+  package = "./plugins/store-data"
